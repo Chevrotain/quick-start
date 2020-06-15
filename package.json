@@ -1,0 +1,61 @@
+{
+  "name": "@chevrotain/quick-start",
+  "description": "Your easy path to define a parser for your language based on Chevrotain DSL toolkit",
+  "version": "0.0.1",
+  "private": true,
+  "keywords": [
+    "chevrotain",
+    "starter pack",
+    "dsl",
+    "parser"
+  ],
+  "homepage": "https://github.com/Chevrotain/quick-start",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chevrotain/quick-start"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf coverage && rm -rf yarn-error.log",
+    "compile": "tsc",
+    "compile:clean": "yarn clean && yarn compile",
+    "compile:watch": "tsc --watch",
+    "generate-diagram": "node scripts/generateDiagram.js",
+    "build": "rm -rf dist && tsc && yarn generate-diagram",
+    "prepublish": "yarn build",
+    "test": "ts-node -O '{\"module\":\"commonjs\"}' node_modules/jest/bin/jest.js ",
+    "test:watch": "ts-node -O '{\"module\":\"commonjs\"}' node_modules/jest/bin/jest.js --watch"
+  },
+  "dependencies": {
+    "chevrotain": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.2",
+    "@types/node": "^12.12.31",
+    "jest": "^25.5.4",
+    "ts-jest": "^25.5.1",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  },
+  "jest": {
+    "collectCoverage": false,
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "roots": [
+      "test"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.spec.ts"
+    ],
+    "testTimeout": 120000
+  }
+}
